@@ -27,15 +27,35 @@ const EstiloGlobal = createGlobalStyle`
     --fs-600: clamp(1.73rem, calc(1.56rem + 0.82vw), 2.20rem);
     --fs-700: clamp(2.07rem, calc(1.84rem + 1.17vw), 2.75rem);
     --fs-800: clamp(2.49rem, calc(2.16rem + 1.64vw), 3.43rem);
+
+    --ff-base: 'PT Sans', sans-serif;
+    --ff-head: 'Nunito', sans-serif;
   }
 
   body {
-    font-family: 'Nunito', sans-serif;
+    font-family: var(--ff-base);
     font-size: var(--fs-400);
     line-height: 1.5;
 
     background-color: var(--color-bg);
     color: var(--color-text);
+  }
+
+  h1, h2, h3 {
+    font-family: var(--ff-head);
+    line-height: 1.2;
+  }
+
+  h1 {
+    font-size: var(--fs-700);
+  }
+
+  h2 {
+    font-size: var(--fs-600);
+  }
+
+  h3 {
+    font-size: var(--fs-500);
   }
 `
 

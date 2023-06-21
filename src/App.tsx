@@ -45,7 +45,12 @@ function App() {
             <input type="text" placeholder="Insira um contato" required/>
             <button type="submit">Pesquisar</button>
           </form>
-          <button type="button" onClick={() => setIsNewContactOpened(true)}>Novo contato</button>
+          <button
+            type="button"
+            onClick={() => setIsNewContactOpened(true)}
+          >
+            Novo contato
+          </button>
         </div>
         <ul>
           {contatos.map((item, index) => (

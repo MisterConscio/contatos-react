@@ -20,8 +20,10 @@ const NewContact = ({isOpened, onClose}) => {
         <input id="number" type="text" placeholder="Número do contato" required/>
         <label htmlFor="email">Email: </label>
         <input id="email" type="text" placeholder="Email do contato" required/>
-        <button type="submit">Adcionar</button>
-        <button type="button" onClick={onClose}>Fechar</button>
+        <menu>
+          <button type="submit">Adcionar</button>
+          <button type="button" onClick={onClose}>Fechar</button>
+        </menu>
       </form>
     </dialog>
   )
