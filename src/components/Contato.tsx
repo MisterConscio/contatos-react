@@ -1,4 +1,8 @@
-const Contato = ({ name, number, email }) => {
+import ContatoClass from '../models/Contato'
+
+type Props = ContatoClass
+
+const Contato = ({ name, number, email }: Props) => {
   return (
     <div>
       <h3>{name}</h3>

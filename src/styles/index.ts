@@ -8,7 +8,7 @@ const EstiloGlobal = createGlobalStyle`
   box-sizing: border-box;
   }
 
-  * {
+  *:not(dialog) {
     margin: 0;
   }
 
