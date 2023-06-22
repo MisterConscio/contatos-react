@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, FormEvent } from 'react'
 import { useDispatch } from 'react-redux'
 
-import { adicionar } from '../store/contatos'
+import { adicionar, editar } from '../store/contatos'
 
 import styled from 'styled-components'
 
@@ -32,7 +32,7 @@ const Dialog = styled.dialog`
   }
 `
 
-const NewContact = ({isOpened, onClose}) => {
+const NewContact = ({isOpened, onClose, isEditing}) => {
   const ref = useRef<HTMLDialogElement>(null);
 
   const dispatch = useDispatch()
@@ -40,6 +40,7 @@ const NewContact = ({isOpened, onClose}) => {
   const [name, setName] = useState("")
   const [number, setNumber] = useState("")
   const [email, setEmail] = useState("")
+  //const [estaEditando, setEstaEditando] = useState(false)
 
   useEffect(() => {
     if (isOpened) {
@@ -61,10 +62,25 @@ const NewContact = ({isOpened, onClose}) => {
     )
   }
 
+  function editarContato() {
+    dispatch(
+      editar({
+        name,
+        number,
+        email,
+        id
+      })
+    )
+  }
+
   return (
     <Dialog ref={ref}>
       <form onSubmit={adicionarContato} method="dialog">
-        <h3>Adicionar contato</h3>
+        {isEditing ? (
+          <h3>Editar contato</h3>
+        ):(
+          <h3>Adicionar contato</h3>
+        )}
         <section>
           <div className="form-control">
             <label htmlFor="name">Nome: </label>
@@ -96,10 +112,17 @@ const NewContact = ({isOpened, onClose}) => {
               required
             />
           </div>
-          <menu>
-            <button type="submit">Adcionar</button>
-            <button type="button" onClick={onClose}>Fechar</button>
-          </menu>
+          {isEditing ? (
+            <menu>
+              <button type="button" onClick={editarContato}>Salvar</button>
+              <button type="button" onClick={onClose}>Cancelar</button>
+            </menu>
+          ):(
+            <menu>
+              <button type="submit">Adcionar</button>
+              <button type="button" onClick={onClose}>Fechar</button>
+            </menu>
+          )}
         </section>
       </form>
     </Dialog>

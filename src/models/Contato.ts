@@ -1,5 +1,3 @@
-//import * as enums from '../utils/enums/Contato'
-
 class Contato {
   name: string
   number: string

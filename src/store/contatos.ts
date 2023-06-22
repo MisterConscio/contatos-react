@@ -38,17 +38,17 @@ const contatosSlice = createSlice({
   name: 'contatos',
   initialState,
   reducers: {
-    //remover: (state, action: PayloadAction<number>) => {
-    //  state.itens = state.itens.filter((tarefa) => tarefa.id !== action.payload)
-    //},
-    //editar: (state, action: PayloadAction<Contato>) => {
-    //  const tarefaIndex = state.itens.findIndex(
-    //    (t) => t.id === action.payload.id
-    //  )
-    //  if (tarefaIndex >= 0) {
-    //    state.itens[tarefaIndex] = action.payload
-    //  }
-    //},
+    remover: (state, action: PayloadAction<number>) => {
+      state.itens = state.itens.filter((contato) => contato.id !== action.payload)
+    },
+    editar: (state, action: PayloadAction<Contato>) => {
+      const tarefaIndex = state.itens.findIndex(
+        (t) => t.id === action.payload.id
+      )
+      if (tarefaIndex >= 0) {
+        state.itens[tarefaIndex] = action.payload
+      }
+    },
     adicionar: (state, action: PayloadAction<Omit<Contato, 'id'>>) => {
       const contatoJaExiste = state.itens.find(
         (contato) =>
@@ -69,6 +69,6 @@ const contatosSlice = createSlice({
   }
 })
 
-export const { adicionar } = contatosSlice.actions
+export const { adicionar, remover, editar } = contatosSlice.actions
 
 export default contatosSlice.reducer
