@@ -42,11 +42,11 @@ const contatosSlice = createSlice({
       state.itens = state.itens.filter((contato) => contato.id !== action.payload)
     },
     editar: (state, action: PayloadAction<Contato>) => {
-      const tarefaIndex = state.itens.findIndex(
-        (t) => t.id === action.payload.id
+      const contatoIndex = state.itens.findIndex(
+        (contato) => contato.id === action.payload.id
       )
-      if (tarefaIndex >= 0) {
-        state.itens[tarefaIndex] = action.payload
+      if (contatoIndex >= 0) {
+        state.itens[contatoIndex] = action.payload
       }
     },
     adicionar: (state, action: PayloadAction<Omit<Contato, 'id'>>) => {

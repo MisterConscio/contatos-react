@@ -62,17 +62,6 @@ const NewContact = ({isOpened, onClose, isEditing}) => {
     )
   }
 
-  function editarContato() {
-    dispatch(
-      editar({
-        name,
-        number,
-        email,
-        id
-      })
-    )
-  }
-
   return (
     <Dialog ref={ref}>
       <form onSubmit={adicionarContato} method="dialog">
