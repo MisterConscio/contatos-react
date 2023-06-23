@@ -10,17 +10,17 @@ import EstiloGlobal, { Main } from './styles'
 
 function App() {
   const [ isNewContactOpened, setIsNewContactOpened ] = useState(false)
-  const [ editContact, setEditContact ] = useState(false)
+  //const [ editContact, setEditContact ] = useState(false)
 
   const { itens } = useSelector((state: RootReducer) => state.contatos)
 
-  function editHandler() {
-    setEditContact(true)
-    setIsNewContactOpened(true)
-  }
+  //function editHandler() {
+  //  setEditContact(true)
+  //  setIsNewContactOpened(true)
+  //}
 
   function addHandler() {
-    setEditContact(false)
+    //setEditContact(false)
     setIsNewContactOpened(true)
   }
 
@@ -57,7 +57,6 @@ function App() {
         <NewContact
           isOpened={isNewContactOpened}
           onClose={() => setIsNewContactOpened(false)}
-          isEditing={editContact}
         />
       </Main>
     </>

@@ -12,21 +12,21 @@ const Contato = ({ name, number, email, id, onEditing }: Props) => {
 
   const [isEditing, setIsEditing] = useState(false)
 
-  const [editName, setEditName] = useState("")
-  const [editNumber, setEditNumber] = useState("")
-  const [editEmail, setEditEmail] = useState("")
+  const [editName, setEditName] = useState(name)
+  const [editNumber, setEditNumber] = useState(number)
+  const [editEmail, setEditEmail] = useState(email)
 
-  useEffect(() => {
-    if (name.length > 0) {
-      setEditName(name)
-    }
-    if (number.length > 0) {
-      setEditNumber(number)
-    }
-    if (email.length > 0) {
-      setEditEmail(email)
-    }
-  }, [name, number, email])
+  //useEffect(() => {
+  //  if (name.length > 0) {
+  //    setEditName(name)
+  //  }
+  //  if (number.length > 0) {
+  //    setEditNumber(number)
+  //  }
+  //  if (email.length > 0) {
+  //    setEditEmail(email)
+  //  }
+  //}, [name, number, email])
 
   function saveEdit() {
     dispatch(editar({editName, editNumber, editEmail, id}))
@@ -69,9 +69,9 @@ const Contato = ({ name, number, email, id, onEditing }: Props) => {
         </>
       ):(
         <>
-          <h3>{name}</h3>
-          <p>{number}</p>
-          <p>{email}</p>
+          <h3>{editName}</h3>
+          <p>{editNumber}</p>
+          <p>{editEmail}</p>
           <menu>
             <button type="button" onClick={() => setIsEditing(true)}>Editar</button>
             <button

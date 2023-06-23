@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, FormEvent } from 'react'
 import { useDispatch } from 'react-redux'
 
-import { adicionar, editar } from '../store/contatos'
+import { adicionar } from '../store/contatos'
 
 import styled from 'styled-components'
 
@@ -32,7 +32,7 @@ const Dialog = styled.dialog`
   }
 `
 
-const NewContact = ({isOpened, onClose, isEditing}) => {
+const NewContact = ({isOpened, onClose}) => {
   const ref = useRef<HTMLDialogElement>(null);
 
   const dispatch = useDispatch()
@@ -65,11 +65,7 @@ const NewContact = ({isOpened, onClose, isEditing}) => {
   return (
     <Dialog ref={ref}>
       <form onSubmit={adicionarContato} method="dialog">
-        {isEditing ? (
-          <h3>Editar contato</h3>
-        ):(
-          <h3>Adicionar contato</h3>
-        )}
+        <h3>Adicionar contato</h3>
         <section>
           <div className="form-control">
             <label htmlFor="name">Nome: </label>
@@ -101,17 +97,10 @@ const NewContact = ({isOpened, onClose, isEditing}) => {
               required
             />
           </div>
-          {isEditing ? (
-            <menu>
-              <button type="button" onClick={editarContato}>Salvar</button>
-              <button type="button" onClick={onClose}>Cancelar</button>
-            </menu>
-          ):(
-            <menu>
-              <button type="submit">Adcionar</button>
-              <button type="button" onClick={onClose}>Fechar</button>
-            </menu>
-          )}
+          <menu>
+            <button type="submit">Adcionar</button>
+            <button type="button" onClick={onClose}>Fechar</button>
+          </menu>
         </section>
       </form>
     </Dialog>
