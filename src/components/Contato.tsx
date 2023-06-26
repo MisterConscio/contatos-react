@@ -7,29 +7,29 @@ import ContatoClass from '../models/Contato'
 
 type Props = ContatoClass
 
-const Contato = ({ name, number, email, id, onEditing }: Props) => {
+const Contato = ({ name: localName, number: localNumber, email: localEmail, id }: Props) => {
   const dispatch = useDispatch()
 
   const [isEditing, setIsEditing] = useState(false)
 
-  const [editName, setEditName] = useState(name)
-  const [editNumber, setEditNumber] = useState(number)
-  const [editEmail, setEditEmail] = useState(email)
+  const [name, setEditName] = useState(localName)
+  const [number, setEditNumber] = useState(localNumber)
+  const [email, setEditEmail] = useState(localEmail)
 
   //useEffect(() => {
-  //  if (name.length > 0) {
-  //    setEditName(name)
+  //  if (localName.length > 0) {
+  //    setEditName(localName)
   //  }
-  //  if (number.length > 0) {
-  //    setEditNumber(number)
+  //  if (localNumber.length > 0) {
+  //    setEditNumber(localNumber)
   //  }
-  //  if (email.length > 0) {
-  //    setEditEmail(email)
+  //  if (localEmail.length > 0) {
+  //    setEditEmail(localEmail)
   //  }
-  //}, [name, number, email])
+  //}, [localName, localNumber, localEmail])
 
   function saveEdit() {
-    dispatch(editar({editName, editNumber, editEmail, id}))
+    dispatch(editar({name, number, email, id}))
     setIsEditing(false)
   }
 
@@ -39,17 +39,17 @@ const Contato = ({ name, number, email, id, onEditing }: Props) => {
         <>
           <input
             type="text"
-            value={editName}
+            value={name}
             onChange={(e) => setEditName(e.target.value)}
           />
           <input
             type="text"
-            value={editNumber}
+            value={number}
             onChange={(e) => setEditNumber(e.target.value)}
           />
           <input
             type="email"
-            value={editEmail}
+            value={email}
             onChange={(e) => setEditEmail(e.target.value)}
           />
           <menu>
@@ -69,9 +69,9 @@ const Contato = ({ name, number, email, id, onEditing }: Props) => {
         </>
       ):(
         <>
-          <h3>{editName}</h3>
-          <p>{editNumber}</p>
-          <p>{editEmail}</p>
+          <h3>{name}</h3>
+          <p>{number}</p>
+          <p>{email}</p>
           <menu>
             <button type="button" onClick={() => setIsEditing(true)}>Editar</button>
             <button
