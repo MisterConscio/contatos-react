@@ -15,18 +15,6 @@ const EstiloGlobal = createGlobalStyle`
   html { color-scheme: dark; }
 
   :root {
-    /*--color-text: #ede8f8;
-    --color-bg: #130b23;
-    --color-primary-btn: #d6e6b2;
-    --color-secondary-btn: #040208;
-    --color-accent: #d6e6b2;*/
-
-    /*--color-text: #faf2e0;
-    --color-bg: #0d0a02;
-    --color-primary-btn: #46e2b1;
-    --color-secondary-btn: #2c2007;
-    --color-accent: #7b1aa8;*/
-
     --color-text: #ffffff;
     --color-bg: #141a15;
     --color-primary-btn: #302f3c;
