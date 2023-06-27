@@ -1,22 +1,31 @@
 import { useState } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
+
+import styled from 'styled-components'
 
 import { RootReducer } from './store'
-import { alterarTermo } from './store/filtro'
 
 import Contato from './components/Contato'
 import NewContact from './components/NewContact'
+import Header from './components/Header'
 
 import EstiloGlobal, { Main } from './styles'
 
+const ContactList = styled.ul`
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  row-gap: 2em;
+
+  li {
+    list-style: none;
+  }
+`
+
 function App() {
   const [ isNewContactOpened, setIsNewContactOpened ] = useState(false)
-  //const [ editContact, setEditContact ] = useState(false)
 
-  const { itens } = useSelector((state: RootReducer) => state.contatos)
   const { termo } = useSelector((state: RootReducer) => state.filtro)
-
-  const dispatch = useDispatch()
+  const { itens } = useSelector((state: RootReducer) => state.contatos)
 
   const filtraContatos = () => {
     let contatosFiltrados = itens
@@ -35,13 +44,7 @@ function App() {
     }
   }
 
-  //function editHandler() {
-  //  setEditContact(true)
-  //  setIsNewContactOpened(true)
-  //}
-
   function addHandler() {
-    //setEditContact(false)
     setIsNewContactOpened(true)
   }
 
@@ -51,26 +54,10 @@ function App() {
     <>
       <EstiloGlobal />
       <Main>
-        <h1>Lista de Contatos</h1>
-        <div>
-          <form>
-            <input
-              type="text"
-              placeholder="Buscar um contato"
-              required
-              value={termo}
-              onChange={(e) => dispatch(alterarTermo(e.target.value))}
-            />
-            {/*<button type="submit">Pesquisar</button>*/}
-          </form>
-          <button
-            type="button"
-            onClick={() => addHandler()}
-          >
-            Novo contato
-          </button>
-        </div>
-        <ul>
+        <Header
+          addHandler={() => addHandler()}
+        />
+        <ContactList>
           {contatos.map((item) => (
             <li key={item.id}>
               <Contato
@@ -81,11 +68,13 @@ function App() {
               />
             </li>
           ))}
-        </ul>
-        <NewContact
-          isOpened={isNewContactOpened}
-          onClose={() => setIsNewContactOpened(false)}
-        />
+        </ContactList>
+        {isNewContactOpened && (
+          <NewContact
+            isOpened={isNewContactOpened}
+            onClose={() => setIsNewContactOpened(false)}
+          />
+        )}
       </Main>
     </>
   )

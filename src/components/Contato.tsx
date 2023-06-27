@@ -1,9 +1,30 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 
+import styled from 'styled-components'
+
 import { remover, editar } from '../store/contatos'
 
 import ContatoClass from '../models/Contato'
+
+const Container = styled.div`
+  input {
+    display: block;
+    font-size: var(--fs-400);
+    padding: 0;
+    line-height: 1.5;
+    background: none;
+  }
+
+  menu {
+    margin-top: 0.25rem;
+    padding-left: 0;
+
+    > * + * {
+      margin-left: 1em;
+    }
+  }
+`
 
 type Props = ContatoClass
 
@@ -16,31 +37,20 @@ const Contato = ({ name: localName, number: localNumber, email: localEmail, id }
   const [number, setEditNumber] = useState(localNumber)
   const [email, setEditEmail] = useState(localEmail)
 
-  //useEffect(() => {
-  //  if (localName.length > 0) {
-  //    setEditName(localName)
-  //  }
-  //  if (localNumber.length > 0) {
-  //    setEditNumber(localNumber)
-  //  }
-  //  if (localEmail.length > 0) {
-  //    setEditEmail(localEmail)
-  //  }
-  //}, [localName, localNumber, localEmail])
-
   function saveEdit() {
     dispatch(editar({name, number, email, id}))
     setIsEditing(false)
   }
 
   return (
-    <div>
+    <Container>
       {isEditing ? (
         <>
           <input
             type="text"
             value={name}
             onChange={(e) => setEditName(e.target.value)}
+            autoFocus
           />
           <input
             type="text"
@@ -83,7 +93,7 @@ const Contato = ({ name: localName, number: localNumber, email: localEmail, id }
           </menu>
         </>
       )}
-    </div>
+    </Container>
   )
 }
 

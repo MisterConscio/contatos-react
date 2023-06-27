@@ -15,11 +15,23 @@ const EstiloGlobal = createGlobalStyle`
   html { color-scheme: dark; }
 
   :root {
-    --color-text: #ede8f8;
+    /*--color-text: #ede8f8;
     --color-bg: #130b23;
     --color-primary-btn: #d6e6b2;
     --color-secondary-btn: #040208;
-    --color-accent: #d6e6b2;
+    --color-accent: #d6e6b2;*/
+
+    /*--color-text: #faf2e0;
+    --color-bg: #0d0a02;
+    --color-primary-btn: #46e2b1;
+    --color-secondary-btn: #2c2007;
+    --color-accent: #7b1aa8;*/
+
+    --color-text: #ffffff;
+    --color-bg: #141a15;
+    --color-primary-btn: #302f3c;
+    --color-secondary-btn: #1d251e;
+    --color-accent: #3c302f;
 
     --fs-300: clamp(1.00rem, calc(0.96rem + 0.22vw), 1.13rem);
     --fs-400: clamp(1.20rem, calc(1.13rem + 0.36vw), 1.41rem);
@@ -56,6 +68,35 @@ const EstiloGlobal = createGlobalStyle`
 
   h3 {
     font-size: var(--fs-500);
+  }
+
+  button {
+    padding: 4px 8px;
+    border: none;
+    border-radius: 0.25em;
+
+    font-size: 1rem;
+    font-weight: bold;
+
+    background-color: var(--color-primary-btn);
+    color: var(--color-text);
+
+    cursor: pointer;
+
+    :hover {
+      background-color: var(--color-accent);
+      color: var(--color-text);
+    }
+  }
+
+  input {
+    padding: 4px 8px;
+    border: none;
+    border-radius: 0.25em;
+
+    font-size: 1rem;
+
+    background-color: var(--color-primary-btn);
   }
 `
 
