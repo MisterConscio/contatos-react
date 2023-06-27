@@ -1,4 +1,4 @@
-# Lista de Tarefas em React
+# Lista de Contatos em React
 
 ## Setup
 
