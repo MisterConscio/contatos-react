@@ -8,12 +8,16 @@ import { remover, editar } from '../store/contatos'
 import ContatoClass from '../models/Contato'
 
 const Container = styled.div`
+  inline-size: 250px;
+  overflow-wrap: break-word;
+
   input {
     display: block;
     font-size: var(--fs-400);
     padding: 0;
     line-height: 1.5;
     background: none;
+    width: 250px;
   }
 
   menu {
@@ -23,6 +27,10 @@ const Container = styled.div`
     > * + * {
       margin-left: 1em;
     }
+  }
+
+  @media (max-width: 767px) {
+    margin-inline: auto;
   }
 `
 

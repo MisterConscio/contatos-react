@@ -19,6 +19,13 @@ const Head = styled.header`
 
   form > input {
     width: 350px;
+    font-size: var(--fs-300);
+  }
+
+  @media (max-width: 767px) {
+    form > input {
+      width: 250px;
+    }
   }
 `
 

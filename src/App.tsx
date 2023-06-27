@@ -13,11 +13,17 @@ import EstiloGlobal, { Main } from './styles'
 
 const ContactList = styled.ul`
   display: grid;
-  grid-template-columns: repeat(3, auto);
+  grid-template-columns: repeat(3, 1fr);
   row-gap: 2em;
+  margin-bottom: 3em;
 
   li {
     list-style: none;
+  }
+
+  @media (max-width: 767px) {
+    grid-template-columns: 1fr;
+    padding-left: 0;
   }
 `
 

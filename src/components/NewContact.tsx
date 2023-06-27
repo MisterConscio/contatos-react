@@ -6,12 +6,20 @@ import { adicionar } from '../store/contatos'
 import styled from 'styled-components'
 
 const Dialog = styled.dialog`
-  background-color: var(--color-bg);
-  width: 60%;
+  width: 600px;
   text-align: center;
+  border-radius: 0.5em;
 
   ::backdrop {
     background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  h3 {
+    margin-bottom: 1rem;
+  }
+
+  .form-control:not(:last-child) {
+    margin-bottom: 1rem;
   }
 
   input {
@@ -19,6 +27,7 @@ const Dialog = styled.dialog`
     border-radius: 8px;
     width: 100%;
 
+    background-color: var(--color-primary-btn);
     color: var(--color-text);
     border: none;
   }
@@ -29,6 +38,15 @@ const Dialog = styled.dialog`
     display: flex;
     justify-content:center;
     gap: 1rem;
+  }
+
+  menu > button {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+
+    :hover {
+      background-color: var(--color-secondary-btn);
+    }
   }
 `
 

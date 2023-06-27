@@ -10,25 +10,31 @@ const initialState: ContatosState = {
     {
       id: 0,
       name: "Fulano",
-      number: "(79) 93742-4872",
+      number: "(81) 93742-4872",
       email: "user.anon@gmail.com"
     },
     {
       id: 1,
       name: "Beltrano",
-      number: "(79) 93742-4872",
+      number: "(55) 93742-4872",
       email: "user.anon@gmail.com"
     },
     {
       id: 2,
       name: "Sicrano",
-      number: "(79) 93742-4872",
+      number: "(72) 93742-4872",
       email: "user.anon@gmail.com"
     },
     {
       id: 3,
       name: "Orangotango",
-      number: "(79) 92837-4329",
+      number: "(83) 92837-4329",
+      email: "user.anon@gmail.com"
+    },
+    {
+      id: 4,
+      name: "Zé do Óleo",
+      number: "(11) 92837-4329",
       email: "user.anon@gmail.com"
     },
   ]
