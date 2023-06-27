@@ -40,7 +40,6 @@ const NewContact = ({isOpened, onClose}) => {
   const [name, setName] = useState("")
   const [number, setNumber] = useState("")
   const [email, setEmail] = useState("")
-  //const [estaEditando, setEstaEditando] = useState(false)
 
   useEffect(() => {
     if (isOpened) {
@@ -60,48 +59,51 @@ const NewContact = ({isOpened, onClose}) => {
         email
       })
     )
+
+    setName(""); setNumber(""); setEmail("")
   }
 
   return (
     <Dialog ref={ref}>
-      <form onSubmit={adicionarContato} method="dialog">
+      <form onSubmit={adicionarContato}>
         <h3>Adicionar contato</h3>
-        <section>
-          <div className="form-control">
-            <label htmlFor="name">Nome: </label>
-            <input
-              id="name"
-              type="text"
-              placeholder="Nome do contato"
-              onChange={(e) => setName(e.target.value)}
-              required
-            />
-          </div>
-          <div className="form-control">
-            <label htmlFor="number">Número: </label>
-            <input
-              id="number"
-              type="text"
-              placeholder="Número do contato"
-              onChange={(e) => setNumber(e.target.value)}
-              required
-            />
-          </div>
-          <div className="form-control">
-            <label htmlFor="email">Email: </label>
-            <input
-              id="email"
-              type="email"
-              placeholder="Email do contato"
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-          </div>
-          <menu>
-            <button type="submit">Adcionar</button>
-            <button type="button" onClick={onClose}>Fechar</button>
-          </menu>
-        </section>
+        <div className="form-control">
+          <label htmlFor="name">Nome: </label>
+          <input
+            id="name"
+            type="text"
+            placeholder="Nome do contato"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
+        </div>
+        <div className="form-control">
+          <label htmlFor="number">Número: </label>
+          <input
+            id="number"
+            type="text"
+            placeholder="Número do contato"
+            value={number}
+            onChange={(e) => setNumber(e.target.value)}
+            required
+          />
+        </div>
+        <div className="form-control">
+          <label htmlFor="email">Email: </label>
+          <input
+            id="email"
+            type="email"
+            placeholder="Email do contato"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </div>
+        <menu>
+          <button type="submit">Adcionar</button>
+          <button type="button" onClick={onClose}>Fechar</button>
+        </menu>
       </form>
     </Dialog>
   )
