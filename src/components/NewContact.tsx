@@ -50,7 +50,12 @@ const Dialog = styled.dialog`
   }
 `
 
-const NewContact = ({isOpened, onClose}) => {
+type Props = {
+  isOpened?: boolean
+  onClose?: any
+}
+
+const NewContact = ({isOpened, onClose}: Props) => {
   const ref = useRef<HTMLDialogElement>(null);
 
   const dispatch = useDispatch()

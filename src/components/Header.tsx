@@ -29,7 +29,11 @@ const Head = styled.header`
   }
 `
 
-const Header = ({addHandler}) => {
+type Props = {
+  addHandler?: any
+}
+
+const Header = ({addHandler}: Props) => {
   const dispatch = useDispatch()
   const { termo } = useSelector((state: RootReducer) => state.filtro)
 
